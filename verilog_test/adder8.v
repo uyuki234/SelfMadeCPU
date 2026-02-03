@@ -5,6 +5,6 @@ module adder8(
     output reg [7:0]    out
 );
     always @(posedge clk) begin
-        out <= in0 in1;
+        out <= in0 + in1;
     end
 endmodule
