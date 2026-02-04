@@ -8,25 +8,46 @@ module Basic;
 
     reg r_a;
     reg r_b;
+    reg r_s;
     // --- おまじないここまで ---
 
     wire w_x;
 
-    assign w_x = r_a ^ r_b;
+    assign w_x = (r_a & ~r_s) | (r_b & r_s);
 
     // --- おまじないここから ---
     initial begin
-        r_a = 1'b0; // 1'b0は2進1ビット
-        r_b = 1'b0; // 'bのbは2進数を表す
-        #2
-        r_a = 1'b1;
+        r_a = 1'b0;
         r_b = 1'b0;
+        r_s = 1'b0;
+        #2
+        r_a = 1'b0;
+        r_b = 1'b0;
+        r_s = 1'b1;
         #2
         r_a = 1'b0;
         r_b = 1'b1;
+        r_s = 1'b0;
+        #2
+        r_a = 1'b0;
+        r_b = 1'b1;
+        r_s = 1'b1;
+        #2
+        r_a = 1'b1;
+        r_b = 1'b0;
+        r_s = 1'b0;
+        #2
+        r_a = 1'b1;
+        r_b = 1'b0;
+        r_s = 1'b1;
         #2
         r_a = 1'b1;
         r_b = 1'b1;
+        r_s = 1'b0;
+        #2
+        r_a = 1'b1;
+        r_b = 1'b1;
+        r_s = 1'b1;
         #2
         $finish;
     end
