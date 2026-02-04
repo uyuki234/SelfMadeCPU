@@ -11,7 +11,7 @@ module Basic;
 
     wire w_x;
 
-    assign w_x = r_a;
+    assign w_x = ~r_a;
 
     // --- おまじないここから ---
     initial begin
