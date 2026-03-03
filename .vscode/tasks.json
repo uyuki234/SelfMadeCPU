@@ -1,0 +1,33 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "iverilog: build",
+            "type": "shell",
+            "command": "iverilog",
+            "args": [
+                "-g2012",
+                "-o", "${workspaceFolder}/build/a.out",
+                "${workspaceFolder}/src/top.v"
+            ],
+            "options": {
+                "env": {
+                    "Path": "C:\\iverilog\\bin;${env:Path}"
+                }
+            },
+            "group": { "kind": "build", "isDefault": true },
+            "problemMatcher": []
+        },
+        {
+            "label": "vvp: run",
+            "type": "shell",
+            "command": "vvp",
+            "args": ["${workspaceFolder}/build/a.out"],
+            "options": {
+                "env": {
+                    "Path": "C:\\iverilog\\bin;${env:Path}"
+                }
+            }
+        }
+    ]
+}
